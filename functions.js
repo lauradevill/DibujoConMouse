@@ -1,5 +1,5 @@
 let canva = document.getElementById("myCanvas");//Get Canvas
-let dArea = canva.getContext("2d");//Get Context of canvas
+let dArea = canva.getContext("2d");//Get Context of Canvas
 let button = document.getElementById("eraseButton");//Get erase button
 button.addEventListener("click", eraseDraw);
 
@@ -21,17 +21,15 @@ function drawLine(color, xInitial, yInitial, xFinal, yFinal, drawingArea){
 }
 
 
-window.addEventListener("mousedown", drawWithMouse);
-let xI = window.layerX; //initial point in x given by the user click
-let yI = window.layerY; //initial point in y given by the user click
+canva.addEventListener("mousedown", drawWithMouse);
 
-//let xI = canva.width / 2; //initial point in x (canvas center in x)
-//let yI = canva.height / 2; //initial point in y (canvas center in y)
+let xI = canva.width / 2; //initial point in x (canvas center in x)
+let yI = canva.height / 2; //initial point in y (canvas center in y)
 
 //Paint using the mouse
 function drawWithMouse(event){
-    let xF = event.layerX;
-    let yF = event.layerY; 
+    let xF = event.offsetX;
+    let yF = event.offsetY; 
 
     console.log(event);
 
